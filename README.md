@@ -23,3 +23,10 @@
 ## Automations
 
 ## Smart Home Components
+
+* [Synology DiskStation DS918+](https://www.synology.com/products/DS918+)
+** 3x 8TB WD RED NAS HDD
+* [Hue Bridge](https://www.philips-hue.com/en-ca/p/hue-bridge/046677458478)
+* [Harmony Hub](https://www.logitech.com/en-ca/product/harmony-hub?crid=60)
+* 
+

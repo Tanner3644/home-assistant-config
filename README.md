@@ -27,8 +27,14 @@
 * [Synology DiskStation DS918+](https://www.synology.com/products/DS918+)
   * [8TB WD RED NAS HDD (x3)](https://www.westerndigital.com/products/internal-drives/wd-red-hdd)
   * 16GB DDR3
-* [Hue Bridge](https://www.philips-hue.com/en-ca/p/hue-bridge/046677458478)
+
 * [Harmony Hub](https://www.logitech.com/en-ca/product/harmony-hub?crid=60)
 * [Alexa Spot](https://www.amazon.ca/Amazon-VN94DQ-Echo-Spot-White/dp/B074BHG7RG)
 * [Alexa Dot (x3)](https://www.amazon.ca/Echo-Dot-3rd-gen-Charcoal/dp/B07PDHT5XP)
-
+* [Philips Hue Bridge](https://www.philips-hue.com/en-ca/p/hue-bridge/046677458478)
+* [Philips Hue Play HDMI Sync Box](https://www.philips-hue.com/en-ca/p/hue-play-hdmi-sync-box-/046677555221)
+* [Philips Hue White (x8)](https://www.philips-hue.com/en-ca/p/hue-white-1-pack-a21-e26/046677557812)
+* [Philips Hue Color (x4)](https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-1-pack-e26/046677548483)
+* [Philips Hue Go (x2)](https://www.philips-hue.com/en-ca/p/hue-white-and-color-ambiance-go-portable-light-(latest-model)/7602031U7)
+* [Philips Hue Play Gradient Lightstrip](https://www.philips-hue.com/en-ca/p/hue-white-and-color-ambiance-play-gradient-lightstrip-65-inch/046677560416)
+* [Philips Hue Lightstrip](https://www.philips-hue.com/en-ca/p/hue-white-and-color-ambiance-lightstrip-plus-base-v4-80-inch/046677555313)

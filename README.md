@@ -25,8 +25,10 @@
 ## Smart Home Components
 
 * [Synology DiskStation DS918+](https://www.synology.com/products/DS918+)
-  * 3x 8TB WD RED NAS HDD
+  * [8TB WD RED NAS HDD (x3)](https://www.westerndigital.com/products/internal-drives/wd-red-hdd)
+  * 16GB DDR3
 * [Hue Bridge](https://www.philips-hue.com/en-ca/p/hue-bridge/046677458478)
 * [Harmony Hub](https://www.logitech.com/en-ca/product/harmony-hub?crid=60)
-* 
+* [Alexa Spot](https://www.amazon.ca/Amazon-VN94DQ-Echo-Spot-White/dp/B074BHG7RG)
+* [Alexa Dot (x3)](https://www.amazon.ca/Echo-Dot-3rd-gen-Charcoal/dp/B07PDHT5XP)
 

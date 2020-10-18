@@ -19,3 +19,7 @@
 ## Server
 
 ![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/server-day.png)
+
+# Automations
+
+# Smart Home Components

@@ -18,7 +18,7 @@
 
 ### Vacuum
 
-![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/vacuum-night.png)
+![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/roomba-night.png)
 
 ### Server
 

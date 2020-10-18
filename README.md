@@ -10,7 +10,10 @@
 
 ![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/home-page-night.png)
 
-* The main part of the Lovelace UI consists of two custom cards, [sidebar-card](https://github.com/DBuit/sidebar-card) and [lovelace-soft-ui](https://github.com/N-l1/lovelace-soft-ui)
+* Top and bottom pictures show the different theme for day and night
+* Main dashbaord for all of the lights in the apartment
+* Harmony Hub allow for total control of the entertainment system
+* Buttons to start and stop the syncing of the Philips Hue Play Gradient Lightstrip behind the TV to match what is on the TV
 
 ### Weather
 

@@ -26,6 +26,14 @@
 
 ## Automations
 
+* Changing the theme between light and dark based on the sun's position
+* Setting the brightness of the wall mounted tablet based on the sun's position
+* Motion sensor to turn the tablet on when there is movement in front of it
+* Flashing Philips Hue lights red when my favourite NHL team scores
+* Robot vacuum cleans the apartment at a certain day and time only when someone is home to monitor it (Alexa also anounces to prep the apartment to be vacuumed 10 minutes before cleaning) 
+* Turning all lights off when there is no one present in the apartment for 15 minutes
+
+
 ## Smart Home Components
 
 * [Synology DiskStation DS918+](https://www.synology.com/products/DS918+)

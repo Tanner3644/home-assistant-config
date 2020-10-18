@@ -16,13 +16,25 @@
 
 ![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/weather-day.png)
 
+* Five day forecast
+* Enviroment Canada Radar for surrounding area
+* Living room temperature graph
+* Live feed of a camera at a downtown park
+
 ### Vacuum
 
 ![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/roomba-night.png)
 
+* Clean, locate, pause and return functions for the Roomba
+* Shows battery life and if you need to empty the bin
+
 ### Server
 
 ![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/server-day.png)
+
+* Shows the volumed used and the resource monitor for the Synology DS918+
+* Shows the status of docker containers (online/offline)
+* Shows the Pi-hole dahboard and allows it to be turned on/off with a button
 
 ## Automations
 

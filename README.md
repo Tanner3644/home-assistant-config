@@ -7,3 +7,5 @@
 ![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/home-page-day.png)
 
 ![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/home-page-night.png)
+
+* The main part of the Lovelace UI consists of two custom cards, [sidebar-card](https://github.com/DBuit/sidebar-card) and [lovelace-soft-ui](https://github.com/N-l1/lovelace-soft-ui)

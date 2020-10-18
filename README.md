@@ -29,7 +29,7 @@
 ## Smart Home Components
 
 * [Synology DiskStation DS918+](https://www.synology.com/products/DS918+)
-  * [8TB WD RED NAS HDD (x3)](https://www.westerndigital.com/products/internal-drives/wd-red-hdd)
+  * [8TB WD RED NAS HDD](https://www.westerndigital.com/products/internal-drives/wd-red-hdd) (x3)
   * 16GB DDR3
 
 * [Harmony Hub](https://www.logitech.com/en-ca/product/harmony-hub?crid=60)

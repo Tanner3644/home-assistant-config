@@ -49,6 +49,7 @@
 * Robot vacuum cleans the apartment at a certain day and time only when someone is home to monitor it (Alexa also anounces to prep the apartment to be vacuumed 10 minutes before cleaning) 
 * Turning all lights off when there is no one present in the apartment for 15 minutes
 
+## Network Diagram
 
 ## Smart Home Components
 

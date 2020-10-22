@@ -1,0 +1,288 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+switch: !include switch.yaml
+secrets: !include secrets.yaml
+# sensor: !include sensors.yaml
+
+homeassistant:
+  customize: !include customize.yaml
+
+lovelace:
+  mode: yaml
+  # Include external resources only add when mode is yaml, otherwise manage in the resources in the lovelace configuration panel.
+  resources:
+    - url: /hacsfiles/spotify-card/spotify-card.js
+      type: module
+    - url: /hacsfiles/upcoming-media-card/upcoming-media-card.js
+      type: module
+    - url: /local/community/mini-media-player-bundle/mini-media-player-bundle.js
+      type: module
+    - url: /hacsfiles/lovelace-hui-element/hui-element.js
+      type: module
+    - url: /hacsfiles/lovelace-layout-card/layout-card.js
+      type: module
+    - url: /hacsfiles/button-card/button-card.js
+      type: module
+    - url: /hacsfiles/sidebar-card/sidebar-card.js
+      type: module
+    - url: /hacsfiles/custom-header/custom-header.js
+      type: module
+    - url: /hacsfiles/atomic-calendar-revive/atomic-calendar-revive.js
+      type: module
+    - url: /hacsfiles/lovelace-card-mod/card-mod.js
+      type: module
+    - url: /hacsfiles/lovelace-roomba-vacuum-card/roomba-vacuum-card.js
+      type: module
+    - url: /hacsfiles/check-button-card/check-button-card.js
+      type: module
+    - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
+      type: module
+    - url: /hacsfiles/text-divider-row/text-divider-row.js
+      type: module
+    - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
+      type: module
+      
+  # Add more dashboards
+  dashboards:
+    lovelace-generated: # Needs to contain a hyphen (-)
+      mode: yaml
+      filename: notexist.yaml
+      title: Generated
+    
+#themes
+frontend:
+  themes: !include_dir_merge_named themes
+  javascript_version: auto
+ 
+# GOOGLE CALENDAR 
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_client_secret
+  
+# Spotify
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+  
+spotcast:
+  sp_dc: !secret spotcast_sp_dc
+  sp_key: !secret spotcast_sp_key
+  
+# Harmony
+remote:
+  - platform: harmony
+    name: livingroom
+    host: 10.0.0.130
+    
+# Weather Canada
+camera:
+  - platform: environment_canada
+  
+  - platform: generic
+    name: Weather Camera
+    stream_source: https://www.youtube.com/embed/xsRDTfuksyI?controls=2&modestbranding=1&rel=0&showinfo=0&loop=0&hl=en&playsinline=true&enablejsapi=1&origin=https%3A%2F%2Fbalticlivecam.com&widgetid=1
+
+# SENSORS
+
+sensor:
+  - platform: template
+    sensors:
+      harmony_activity:
+        value_template: >
+          {% if is_state("remote.livingroom", 'on') %}
+            {{ states.remote.livingroom.attributes.current_activity }}
+          {% else %}
+            PowerOff
+          {% endif %}
+  
+  - platform: template
+    sensors:
+      roomba_battery_level:
+        entity_id: vacuum.roomba
+        unit_of_measurement: '%'
+        value_template: "{{ state_attr('vacuum.roomba', 'battery_level') }}"
+        
+      roomba_status:
+        entity_id: vacuum.roomba
+        value_template: "{{ state_attr('vacuum.roomba', 'status') }}"
+        
+      roomba_bin_full:
+        entity_id: vacuum.roomba
+        value_template: "{{ state_attr('vacuum.roomba', 'bin_full') }}"
+
+# PLEX                  
+  - platform: plex_recently_added
+    name: Recently Added Movies
+    token: !secret plex_token
+    host: 10.0.0.10
+    port: 32400
+    max: 4
+    section_types:
+      - movie
+        
+  - platform: plex_recently_added
+    name: Recently Added TV
+    token: !secret plex_token
+    host: 10.0.0.10
+    port: 32400
+    max: 4
+    section_types:
+      - show
+      
+  - platform: command_line
+    name: 'Plex Online'
+    command: response=$(curl -LIk -m 3 http://10.0.0.10:32400 -o /dev/null -w "%{http_code}\n" -s); test "$response" -ge 200 && echo "Online" || echo "Offline" 
+    scan_interval: 90
+    value_template: '{{ value }}' 
+      
+# RADARR      
+  - platform: radarr_upcoming_media
+    api_key: !secret radarr_api_key
+    host: 10.0.0.10
+    port: 7878
+    days: 60
+    ssl: false
+    theaters: false
+    max: 5
+    
+  - platform: command_line
+    name: 'Radarr Online'
+    command: response=$(curl -LIk -m 3 http://10.0.0.10:7878 -o /dev/null -w "%{http_code}\n" -s); test "$response" -ge 200 && echo "Online" || echo "Offline" 
+    scan_interval: 90
+    value_template: '{{ value }}' 
+
+# SONARR
+  - platform: sonarr_upcoming_media
+    api_key: !secret sonarr_api_key
+    host: 10.0.0.10
+    port: 32978
+    days: 60
+    ssl: false
+    max: 5
+    
+  - platform: command_line
+    name: 'Sonarr Online'
+    command: response=$(curl -LIk -m 3 http://10.0.0.10:32978 -o /dev/null -w "%{http_code}\n" -s); test "$response" -ge 200 && echo "Online" || echo "Offline" 
+    scan_interval: 90
+    value_template: '{{ value }}' 
+
+# TRANSMISSION
+
+  - platform: command_line
+    name: 'Transmission Online'
+    command: response=$(curl -LIk -m 3 http://10.0.0.10:32771 -o /dev/null -w "%{http_code}\n" -s); test "$response" -ge 200 && echo "Online" || echo "Offline" 
+    scan_interval: 90
+    value_template: '{{ value }}' 
+    
+# JACKETT
+
+  - platform: command_line
+    name: 'Jackett Online'
+    command: response=$(curl -LIk -m 3 http://10.0.0.10:32769 -o /dev/null -w "%{http_code}\n" -s); test "$response" -ge 200 && echo "Online" || echo "Offline" 
+    scan_interval: 90
+    value_template: '{{ value }}'
+
+# FULLY KIOSK    
+  - platform: rest
+    name: Kiosk Device Info
+    resource: !secret fully_kiosk_resource
+    json_attributes:
+      - screenBrightness
+      - isScreenOn
+    value_template: 'OK'
+    
+  - platform: nhl_api
+    team_id: 14
+    scan_interval:
+      minutes: 20
+      
+  - platform: template
+    sensors:
+       nhl_game_state:
+         value_template: '{{ states.sensor.nhl_sensor.attributes.game_state }}' 
+         
+       nhl_away_score:
+         value_template: '{{ states.sensor.nhl_sensor.attributes.away_score }}' 
+         
+       nhl_home_score:
+         value_template: '{{ states.sensor.nhl_sensor.attributes.home_score }}' 
+         
+  - platform: nhl_api
+    name: nhl_tanner
+    team_id: 25
+    scan_interval:
+      minutes: 20
+      
+  - platform: template
+    sensors:
+       nhl_game_state_tanner:
+         value_template: '{{ states.sensor.nhl_tanner.attributes.game_state }}' 
+       
+rest_command:
+  kiosk_command:
+    url: !secret kiosk_command_url
+
+light:
+  - platform: group
+    name: All Lights
+    entities:
+      - light.bedroom_1
+      - light.bedroom_2
+      - light.nightstand_1
+      - light.nightstand_2
+      - light.nightstand_3
+      - light.living_room_1
+      - light.living_room_2
+      - light.living_room_3
+      - light.tv_1
+      - light.tv_2
+      - light.kitchen_1
+      - light.kitchen_2
+      - light.kitchen_3
+      - light.kitchen_led
+      - light.foyer_1
+      
+roomba:
+  - host: 10.0.0.147
+    blid: !secret roomba_blid
+    password: !secret roomba_password
+    
+vacuum:
+  - platform: roomba
+    name: Living room
+    host: 10.0.0.147
+    
+device_tracker:
+  - platform: nmap_tracker
+    hosts: 10.0.0.01/24
+    home_interval: 10
+    
+group:
+  all_devices:
+    name: marshall and tanner
+    entities:
+     
+input_number:
+  away_score:
+    min: 0
+    max: 100
+  home_score:
+    min: 0
+    max: 100
+    
+  away_score_tanner:
+    min: 0
+    max: 100
+  home_score_tanner:
+    min: 0
+    max: 100
+    

@@ -1,0 +1,1955 @@
+custom_header:
+  hide_header: true
+  
+button_card_templates:
+  sidebar_button: 
+    style: |
+      * {
+        --soft-ui-pressed: {% if is_state('sun.sun', 'above_horizon') %}
+               inset -6px -6px 10px rgba(255,255,255,.8), inset 6px 6px 10px rgba(0,0,0,.035);
+             {% elif is_state('sun.sun', 'below_horizon') %}
+               inset -4px -4px 5px rgba(60, 60, 60,.6), inset 4px 4px 5px rgba(0,0,0,.5);
+             {% endif %}
+        --soft-ui-shadow: {% if is_state('sun.sun', 'above_horizon') %}
+              -10px -10px 16px rgba(255,255,255,.5),10px 10px 16px rgba(0,0,0,.03);
+            {% elif is_state('sun.sun', 'below_horizon') %}
+              -5px -5px 10px rgba(50, 50, 50,.2),6px 6px 10px rgba(0,0,0,.08);
+            {% endif %}
+      }
+    styles:
+      img_cell:
+      # You can adjust padding of the icon
+        - padding-right: 40px
+        - justify-content: right
+      size: 100%
+      card:
+        - width: 225px
+        - height: 100px
+        - margin: -5px
+        - border-radius: 15px
+        - box-shadow: var(--soft-ui-shadow)
+        - background-color: var(--primary-background-color)
+      icon:
+        - color: var(--primary-text-color)
+      grid:
+        - grid-template-areas: '"n i" "n s"'
+        - grid-template-columns: 1fr
+        - grid-template-columns: 1fr min-content min-content
+      name:
+        - justify-self: left
+        - font-weight: normal
+        - font-size: 25px
+        - padding-left: 15px
+      state:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 15px
+        - opacity: 0.7
+        - padding: 0 15px 10px   
+      
+  media:
+    style: |
+      * {
+        --soft-ui-pressed: {% if is_state('sun.sun', 'above_horizon') %}
+               inset -6px -6px 10px rgba(255,255,255,.8), inset 6px 6px 10px rgba(0,0,0,.035);
+             {% elif is_state('sun.sun', 'below_horizon') %}
+               inset -4px -4px 5px rgba(60, 60, 60,.6), inset 4px 4px 5px rgba(0,0,0,.5);
+             {% endif %}
+        --soft-ui-shadow: {% if is_state('sun.sun', 'above_horizon') %}
+              -10px -10px 16px rgba(255,255,255,.5),10px 10px 16px rgba(0,0,0,.03);
+            {% elif is_state('sun.sun', 'below_horizon') %}
+              -5px -5px 10px rgba(50, 50, 50,.2),6px 6px 10px rgba(0,0,0,.08);
+            {% endif %}
+      }
+    styles:
+      img_cell:
+      # You can adjust padding of the icon
+        - padding-left: 25px
+        - justify-content: start
+      size: 30%
+      card:
+        - width: 135px
+        - height: 135px
+        - margin: 12px
+        - border-radius: 20px
+        - box-shadow: var(--soft-ui-shadow)
+        - background-color: var(--primary-background-color)
+      icon:
+        - color: var(--primary-text-color)
+        - opacity: 0.7
+      grid:
+        - grid-template-areas: '"i" "n" "s"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      name:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 18px 
+        - opacity: 0.7
+        - padding-left: 10px
+      state:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 15px
+        - opacity: 0.7
+        - padding: 0 10px 10px
+    show_state: true
+    state:
+      - value: 'on'
+        styles:
+          name:
+            - font-weight: normal
+            - --text-color-sensor: var(--paper-item-icon-active-color)
+            - color: var(--paper-item-icon-active-color)
+            - opacity: 1
+          card:
+            - box-shadow: var(--soft-ui-pressed)
+          icon:
+            - color: var(--paper-item-icon-active-color)
+            - opacity: 1
+          state:
+            - font-weight: bold
+            - opacity: 1
+            - color: var(--paper-item-icon-active-color)
+    tap_action:
+      action: toggle
+      haptic: light
+    hold_action:
+      action: more-info
+      haptic: medium
+  
+  hue_sync:
+    style: |
+      * {
+        --soft-ui-pressed: {% if is_state('sun.sun', 'above_horizon') %}
+               inset -6px -6px 10px rgba(255,255,255,.8), inset 6px 6px 10px rgba(0,0,0,.035);
+             {% elif is_state('sun.sun', 'below_horizon') %}
+               inset -4px -4px 5px rgba(60, 60, 60,.6), inset 4px 4px 5px rgba(0,0,0,.5);
+             {% endif %}
+        --soft-ui-shadow: {% if is_state('sun.sun', 'above_horizon') %}
+              -10px -10px 16px rgba(255,255,255,.5),10px 10px 16px rgba(0,0,0,.03);
+            {% elif is_state('sun.sun', 'below_horizon') %}
+              -5px -5px 10px rgba(50, 50, 50,.2),6px 6px 10px rgba(0,0,0,.08);
+            {% endif %}
+      }
+    styles:
+      img_cell:
+      # You can adjust padding of the icon
+        - padding-right: 50px
+        - justify-content: start
+      size: 100%
+      card:
+        - width: 300px
+        - height: 75px
+        - margin: 12px
+        - border-radius: 20px
+        - box-shadow: var(--soft-ui-shadow)
+        - background-color: var(--primary-background-color)
+      icon:
+        - color: var(--primary-text-color)
+        - opacity: 0.7
+      grid:
+        - grid-template-areas: '"n i" "s i"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      name:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 18px 
+        - opacity: 0.7
+        - padding-left: 10px
+      state:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 15px
+        - opacity: 0.7
+        - padding: 0 10px 10px
+    show_state: true
+    
+  
+  plex:
+    style: |
+      * {
+        --soft-ui-pressed: {% if is_state('sun.sun', 'above_horizon') %}
+               inset -6px -6px 10px rgba(255,255,255,.8), inset 6px 6px 10px rgba(0,0,0,.035);
+             {% elif is_state('sun.sun', 'below_horizon') %}
+               inset -4px -4px 5px rgba(60, 60, 60,.6), inset 4px 4px 5px rgba(0,0,0,.5);
+             {% endif %}
+        --soft-ui-shadow: {% if is_state('sun.sun', 'above_horizon') %}
+              -10px -10px 16px rgba(255,255,255,.5),10px 10px 16px rgba(0,0,0,.03);
+            {% elif is_state('sun.sun', 'below_horizon') %}
+              -5px -5px 10px rgba(50, 50, 50,.2),6px 6px 10px rgba(0,0,0,.08);
+            {% endif %}
+      }
+    styles:
+      img_cell:
+      # You can adjust padding of the icon
+        - padding-right: 60px
+        - justify-content: start
+      size: 30%
+      card:
+        - width: 470px
+        - height: 100px
+        - margin: 12px
+        - border-radius: 20px
+        - box-shadow: var(--soft-ui-shadow)
+        - background-color: var(--primary-background-color)
+      icon:
+        - color: var(--primary-text-color)
+        - opacity: 0.7
+      grid:
+        - grid-template-areas: '"n i" "s i"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      name:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 18px 
+        - opacity: 0.7
+        - padding-left: 20px
+      state:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 15px
+        - opacity: 0.7
+        - padding: 0 10px 10px 20px
+    show_state: true
+    state:
+      - value: 'on'
+        styles:
+          name:
+            - font-weight: normal
+            - --text-color-sensor: var(--paper-item-icon-active-color)
+            - color: var(--paper-item-icon-active-color)
+            - opacity: 1
+          card:
+            - box-shadow: var(--soft-ui-pressed)
+          icon:
+            - color: var(--paper-item-icon-active-color)
+            - opacity: 1
+          state:
+            - font-weight: bold
+            - opacity: 1
+            - color: var(--paper-item-icon-active-color) 
+      
+  light:
+    style: |
+      * {
+        --soft-ui-pressed: {% if is_state('sun.sun', 'above_horizon') %}
+               inset -6px -6px 10px rgba(255,255,255,.8), inset 6px 6px 10px rgba(0,0,0,.035);
+             {% elif is_state('sun.sun', 'below_horizon') %}
+               inset -4px -4px 5px rgba(60, 60, 60,.6), inset 4px 4px 5px rgba(0,0,0,.5);
+             {% endif %}
+        --soft-ui-shadow: {% if is_state('sun.sun', 'above_horizon') %}
+              -10px -10px 16px rgba(255,255,255,.5),10px 10px 16px rgba(0,0,0,.03);
+            {% elif is_state('sun.sun', 'below_horizon') %}
+              -5px -5px 10px rgba(50, 50, 50,.2),6px 6px 10px rgba(0,0,0,.08);
+            {% endif %}
+      }
+    styles:
+      img_cell:
+      # You can adjust padding of the icon
+        - padding-left: 15px
+        - justify-content: start
+      size: 30%
+      card:
+        - width: 135px
+        - height: 135px
+        - margin: 12px
+        - border-radius: 30px
+        - box-shadow: var(--soft-ui-shadow)
+        - background-color: var(--primary-background-color)
+      icon:
+        - color: var(--primary-text-color)
+        - opacity: 0.7
+      grid:
+        - grid-template-areas: '"i" "n" "s"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      name:
+        - justify-self: start
+        - font-weight: normal;
+        - font-size: 20px
+        - padding-left: 15px
+        - opacity: 0.7
+      state:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 15px
+        - opacity: 0.7
+        - padding: 0 15px 10px
+    show_state: true
+    state:
+      - value: 'on'
+        styles:
+          name:
+            - font-weight: normal
+            - --text-color-sensor: var(--paper-item-icon-active-color)
+            - color: var(--paper-item-icon-active-color)
+            - opacity: 1
+          card:
+            - box-shadow: var(--soft-ui-pressed)
+          icon:
+            - color: var(--paper-item-icon-active-color)
+            - opacity: 1
+          state:
+            - font-weight: bold
+            - opacity: 1
+            - color: var(--paper-item-icon-active-color)
+
+    hold_action:
+      action: more-info
+      haptic: medium    
+  
+  irobot:
+    style: |
+      * {
+        --soft-ui-pressed: {% if is_state('sun.sun', 'above_horizon') %}
+               inset -6px -6px 10px rgba(255,255,255,.8), inset 6px 6px 10px rgba(0,0,0,.035);
+             {% elif is_state('sun.sun', 'below_horizon') %}
+               inset -4px -4px 5px rgba(60, 60, 60,.6), inset 4px 4px 5px rgba(0,0,0,.5);
+             {% endif %}
+        --soft-ui-shadow: {% if is_state('sun.sun', 'above_horizon') %}
+              -10px -10px 16px rgba(255,255,255,.5),10px 10px 16px rgba(0,0,0,.03);
+            {% elif is_state('sun.sun', 'below_horizon') %}
+              -5px -5px 10px rgba(50, 50, 50,.2),6px 6px 10px rgba(0,0,0,.08);
+            {% endif %}
+      }
+    styles:
+      img_cell:
+      # You can adjust padding of the icon
+        - padding-left: 10px
+        - justify-content: start
+      size: 30%
+      card:
+        - width: 135px
+        - height: 135px
+        - margin: 12px
+        - border-radius: 30px
+        - box-shadow: var(--soft-ui-shadow)
+        - background-color: var(--primary-background-color)
+      icon:
+        - color: var(--primary-text-color)
+        - opacity: 0.7
+      grid:
+        - grid-template-areas: '"i" "n" "s"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      name:
+        - justify-self: start
+        - font-weight: normal;
+        - font-size: 20px
+        - padding-left: 10px
+        - padding-bottom: none
+        - opacity: 0.7
+      state:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 15px
+        - opacity: 0.7
+        - padding: 0 10px 10px
+        
+  irobot_bin_empty:
+    style: |
+      * {
+        --soft-ui-pressed: {% if is_state('sun.sun', 'above_horizon') %}
+               inset -6px -6px 10px rgba(255,255,255,.8), inset 6px 6px 10px rgba(0,0,0,.035);
+             {% elif is_state('sun.sun', 'below_horizon') %}
+               inset -4px -4px 5px rgba(60, 60, 60,.6), inset 4px 4px 5px rgba(0,0,0,.5);
+             {% endif %}
+        --soft-ui-shadow: {% if is_state('sun.sun', 'above_horizon') %}
+              -10px -10px 16px rgba(255,255,255,.5),10px 10px 16px rgba(0,0,0,.03);
+            {% elif is_state('sun.sun', 'below_horizon') %}
+              -5px -5px 10px rgba(50, 50, 50,.2),6px 6px 10px rgba(0,0,0,.08);
+            {% endif %}
+      }
+    styles:
+      img_cell:
+      # You can adjust padding of the icon
+        - padding-right: 70px
+        - justify-content: start
+      size: 80%
+      card:
+        - width: 320px
+        - height: 185px
+        - margin: 0px
+        - border-radius: 30px
+        - box-shadow: var(--soft-ui-shadow)
+        - background-color: var(--primary-background-color)
+      icon:
+        - color: var(--primary-text-color)
+        - opacity: 0.7
+        - padding-bottom: 10px
+      grid:
+        - grid-template-areas: '"n i"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr min-content min-content
+      name:
+        - justify-self: start
+        - font-weight: normal;
+        - font-size: 30px
+        - padding-left: 30px
+        - padding-bottom: none
+        - opacity: 0.7
+        
+  server_status:
+    style: |
+      * {
+        --soft-ui-pressed: {% if is_state('sun.sun', 'above_horizon') %}
+               inset -6px -6px 10px rgba(255,255,255,.8), inset 6px 6px 10px rgba(0,0,0,.035);
+             {% elif is_state('sun.sun', 'below_horizon') %}
+               inset -4px -4px 5px rgba(60, 60, 60,.6), inset 4px 4px 5px rgba(0,0,0,.5);
+             {% endif %}
+        --soft-ui-shadow: {% if is_state('sun.sun', 'above_horizon') %}
+              -10px -10px 16px rgba(255,255,255,.5),10px 10px 16px rgba(0,0,0,.03);
+            {% elif is_state('sun.sun', 'below_horizon') %}
+              -5px -5px 10px rgba(50, 50, 50,.2),6px 6px 10px rgba(0,0,0,.08);
+            {% endif %}
+      }
+    show_icon: false
+    show_name: false
+    show_entity_picture: true
+    styles:
+      img_cell:
+      # You can adjust padding of the icon
+        - padding-left: 40px
+        - padding-top: 10px
+        - justify-content: start
+      size: 75%      
+      card:
+        - width: 100px
+        - height: 100px
+        - margin: 8px
+        - border-radius: 20px
+        - box-shadow: var(--soft-ui-shadow)
+        - background-color: var(--primary-background-color)
+      state:
+        - justify-self: start
+        - font-weight: normal
+        - font-size: 15px
+        - opacity: 0.7
+        - padding: 10px 10px 2px 27px #top right bottom left
+    show_state: true
+    state:
+      - value: 'Online'
+        styles:
+          card:
+            - box-shadow: var(--soft-ui-pressed)
+          state:
+            - font-weight: bold
+            - opacity: 1
+            - color: var(--paper-item-icon-active-color)
+          show_name: false
+          show_entity_picture: true
+
+title: Home
+icon: mdi:home
+
+sidebar:
+  width:
+    desktop: 20
+  date: true
+  digitalClock: true
+  twelveHourVersion: false
+  bottomCard:
+    type: vertical-stack
+    cardOptions:
+      cards:         
+        - tap_action:
+            action: call-service
+            service: light.turn_off
+            service_data:
+              entity_id: light.all_lights
+          icon: 'mdi:lightbulb-group-off'
+          name: Lights Off
+          template: sidebar_button
+          type: 'custom:button-card' 
+      
+  sidebarMenu:
+    - action: navigate
+      active: true
+      icon: 'mdi:home'
+      name: Home
+      navigation_path: /lovelace/default_view
+    - action: navigate
+      active: true
+      icon: 'mdi:plex'
+      name: Plex
+      navigation_path: /lovelace/1
+    - action: navigate
+      active: true
+      icon: 'mdi:weather-cloudy'
+      name: Weather
+      navigation_path: /lovelace/5
+    - action: navigate
+      active: true
+      icon: 'mdi:robot-vacuum'
+      name: Vacuum
+      navigation_path: /lovelace/2
+    - action: navigate
+      active: true
+      icon: 'mdi:hockey-sticks'
+      name: Hockey
+      navigation_path: /lovelace/3     
+    - action: navigate
+      active: true
+      icon: 'mdi:calendar'
+      name: Calendar
+      navigation_path: /lovelace/4
+
+    - action: navigate
+      active: true
+      icon: 'mdi:server'
+      name: Server
+      navigation_path: /lovelace/6
+  style: |
+    :host {
+        --sidebar-background: var(--third-background-color);
+        --sidebar-text-color: var(--primary-text-color);
+        --face-color: #21353E;
+        --face-border-color: #21353E;
+        --clock-hands-color: #fff;
+        --clock-seconds-hand-color: #fff;
+        --clock-middle-background: #21353E;
+        --clock-middle-border: #21353E;
+    }
+    .sidebarMenu li.active {
+     background-color: var(--primary-background-color)!important;
+     color: var(--paper-item-icon-active-color)!important;
+     font-weight: 600!important;
+     }
+     
+    .sidebarMenu {
+     border-top: 1px solid var(--primary-text-color)!important;
+     border-bottom: 1px solid var(--primary-text-color)!important;
+     }
+     
+    h2 {
+     font-size: 35px!important;
+     line-height: 25px!important;
+     font-weight: 200;
+     color: #636B75;
+     margin: 0px!important;
+     text-align: center!important;
+     padding-bottom: 10px!important;
+     padding-top: 5px!important;
+     }
+     
+    .sidebarMenu li.active ha-icon {
+     color: var(--paper-item-icon-active-color)!important;
+     }
+     
+    .digitalClock {
+     text-align: center!important;
+     padding-bottom: 10px;
+     padding-top: 10px;
+     font-size: 75px!important;
+     line-height: 100px;
+     font-weight: normal;
+     color: var(--paper-item-icon-active-color)!important;
+    }
+     
+      
+# HOME
+
+views:
+  - title: Home
+    panel: true
+    icon: mdi:home
+    path: default_view
+    badges:
+    cards:
+      - type: "custom:layout-card"
+        layout: vertical
+        column_num: 3
+        cards:
+          - content: |
+              # Kitchen
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown   
+                        
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.kitchen
+                        brightness: 250
+                        xy_color: [0.448,0.4066]
+                    entity: light.kitchen
+                    icon: 'mdi:ceiling-light'
+                    name: Ceiling
+                    template: light
+                    type: 'custom:button-card'  
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.kitchen_led
+                        brightness: 250
+                        xy_color: [0.5119,0.4147]
+                    entity: light.kitchen_led
+                    icon: 'mdi:led-strip-variant'
+                    name: LED
+                    template: light
+                    type: 'custom:button-card'
+                              
+          - content: |
+              # Living Room
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown 
+            
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.living_room
+                        brightness: 250
+                        xy_color: [0.448,0.4066]
+                    entity: light.living_room
+                    icon: 'mdi:ceiling-light'
+                    name: Ceiling
+                    template: light
+                    type: 'custom:button-card'  
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.hue_play_gradient_lightstrip_1
+                        brightness: 250
+                        xy_color: [0.5119,0.4147]
+                    entity: light.hue_play_gradient_lightstrip_1
+                    icon: 'mdi:led-strip-variant'
+                    name: TV LED
+                    template: light
+                    type: 'custom:button-card'
+                    
+              - content: |
+                  # Entertainment
+                style: 
+                  .: |
+                    ha-card {
+                      --ha-card-background: none !important;
+                      box-shadow: none !important;
+                    }                  
+                  ha-markdown:
+                    $: |
+                      h1 {
+                        font-size: 30px;
+                        font-weight: normal;
+                        font-family: Helvetica;
+                        letter-spacing: '-0.01em';
+                      }
+                type: markdown
+            
+              - type: vertical-stack
+                cards:
+                  - type: horizontal-stack
+                    cards:
+                      - entity: switch.tanners_ps4
+                        icon: 'mdi:sony-playstation'
+                        name: Tanner's PS
+                        template: media
+                        type: 'custom:button-card'
+                      - entity: switch.marshalls_ps4
+                        icon: 'mdi:sony-playstation'
+                        name: Marshall's PS
+                        template: media
+                        type: 'custom:button-card'
+                  - entity: media_player.sync_box
+                    icon: 'mdi:sync'
+                    name: Sync Hue Lights
+                    template: hue_sync
+                    type: 'custom:button-card'
+                    tap_action:
+                      action: call-service
+                      service: media_player.media_play
+                      service_data:
+                        entity_id: media_player.sync_box
+                    hold_action:
+                      action: more-info
+                      haptic: medium
+                    state:
+                      - value: 'playing'
+                        styles:
+                          name:
+                            - font-weight: normal
+                            - --text-color-sensor: var(--paper-item-icon-active-color)
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          card:
+                            - box-shadow: var(--soft-ui-pressed)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          state:
+                            - font-weight: bold
+                            - opacity: 1
+                            - color: var(--paper-item-icon-active-color)
+            
+          - break
+          
+          - content: |
+              # Tanner's Bedroom
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown   
+                        
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.tanners_bedroom
+                        brightness: 250
+                        xy_color: [0.448,0.4066]
+                    entity: light.tanners_bedroom
+                    icon: 'mdi:bed-king'
+                    name: Bedroom
+                    template: light
+                    type: 'custom:button-card'  
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.tanners_nightstand
+                        brightness: 250
+                        xy_color: [0.5119,0.4147]
+                    entity: light.tanners_nightstand
+                    icon: 'mdi:lamp'
+                    name: Nightstand
+                    template: light
+                    type: 'custom:button-card'
+                              
+          - content: |
+              # Marshall's Bedroom
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown 
+            
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.marshalls_bedroom
+                        brightness: 250
+                        xy_color: [0.448,0.4066]
+                    entity: light.marshalls_bedroom
+                    icon: 'mdi:bed-king'
+                    name: Bedroom
+                    template: light
+                    type: 'custom:button-card'  
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.marshalls_nightstand
+                        brightness: 250
+                        xy_color: [0.5119,0.4147]
+                    entity: light.marshalls_nightstand
+                    icon: 'mdi:lamp'
+                    name: Nightstand
+                    template: light
+                    type: 'custom:button-card'
+                    
+          - content: |
+              # &nbsp;
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-color: var(--primary-background-color);
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown
+          
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - entity: switch.apple_tv
+                    icon: 'mdi:television'
+                    name: Apple TV
+                    template: media
+                    type: 'custom:button-card'
+                  - entity: switch.watch_tv
+                    icon: 'mdi:television-box'
+                    name: Shaw TV
+                    template: media
+                    type: 'custom:button-card'
+              - entity: media_player.sync_box
+                icon: 'mdi:sync-off'
+                name: Stop Hue Lights
+                template: hue_sync
+                type: 'custom:button-card'
+                tap_action:
+                  action: call-service
+                  service: media_player.media_stop
+                  service_data:
+                    entity_id: media_player.sync_box
+                hold_action:
+                  action: more-info
+                  haptic: medium
+                state:
+                  - value: 'idle'
+                    styles:
+                      name:
+                        - font-weight: normal
+                        - --text-color-sensor: var(--paper-item-icon-active-color)
+                        - color: var(--paper-item-icon-active-color)
+                        - opacity: 1
+                      card:
+                        - box-shadow: var(--soft-ui-pressed)
+                      icon:
+                        - color: var(--paper-item-icon-active-color)
+                        - opacity: 1
+                      state:
+                        - font-weight: bold
+                        - opacity: 1
+                        - color: var(--paper-item-icon-active-color)
+            
+
+          - break
+          
+          - content: |
+              # Desk
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }                  
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown
+            
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.desk
+                        brightness: 250
+                        xy_color: [0.448,0.4066]
+                    entity: light.desk
+                    icon: 'mdi:floor-lamp'
+                    name: Floor Lamp
+                    template: light
+                    type: 'custom:button-card'  
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.tv_2
+                        brightness: 250
+                        xy_color: [0.5119,0.4147]
+                    entity: light.tv_2
+                    icon: 'mdi:wall-sconce-round-variant'
+                    name: Ambience
+                    template: light
+                    type: 'custom:button-card'
+                    
+          - content: |
+              # Foyer
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }                  
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown
+            
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.foyer_1
+                        brightness: 250
+                        xy_color: [0.448,0.4066]
+                    entity: light.foyer_1
+                    icon: 'mdi:ceiling-light'
+                    name: Ceiling
+                    template: light
+                    type: 'custom:button-card'  
+                  - tap_action:
+                      action: call-service
+                      service: light.toggle
+                      service_data:
+                        entity_id: light.tv_1
+                        brightness: 250
+                        xy_color: [0.5119,0.4147]
+                    entity: light.tv_1
+                    icon: 'mdi:wall-sconce-round-variant'
+                    name: Ambience
+                    template: light
+                    type: 'custom:button-card'                   
+          
+          - content: |
+              # Music
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown
+            
+          - type: custom:mini-media-player
+            entity: media_player.spotify_tanner_doig
+            artwork: cover
+            info: scroll
+            source: icon
+            icon: none
+            hide:
+              power: true
+              name: true
+            style: |
+                  ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 30px;
+                  flag_color: var(--paper-item-icon-active-color);
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                    {% endif %}
+                  } 
+                    
+  # Plex                                     
+                     
+  - title: Plex  
+    icon: 'mdi:plex'
+    panel: true
+    cards:
+      - type: "custom:layout-card"
+        layout: vertical
+        column_num: 2
+        cards:
+          - type: "custom:upcoming-media-card"
+            entity: sensor.recently_added_movies
+            title: Recently Added Movies
+            image_style: fanart 
+            flag_color: var(--paper-item-icon-active-color)!important;
+            title_color: var(--paper-item-icon-active-color)!important;              
+            border_color: var(--third-background-color)!important; 
+            line1_color: var(--primary-text-color)!important;
+            line2_color: var(--primary-text-color)!important; 
+            line3_color: var(--primary-text-color)!important; 
+            line4_color: var(--primary-text-color)!important;
+            style: |
+                  ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                    {% endif %}
+                  }
+                  
+                  div.rece_fan_fanart {
+                   width: 100%;
+                   background: linear-gradient(to right, var(--third-background-color) 48%, transparent 70%,var( --third-background-color) 100%);
+                   background-image: linear-gradient(to right, var(--third-background-color) 48%, transparent 70%, var(--third-background-color) 100%);
+                   background-position-x: initial;
+                   background-position-y: initial;
+                   background-size: initial;
+                   background-repeat-x: initial;
+                   background-repeat-y: initial;
+                   background-attachment: initial;
+                   background-origin: initial;
+                   background-clip: initial;
+                   background-color: var(--third-background-color)
+                   margin: auto;    
+                   box-shadow: var(--primary-background-color)!important;                                 
+                  }
+                  
+                  .rece_line0_fanart {
+                    font-weight:600;
+                    font-size:18px;
+                    text-shadow: none!important;
+                    fill:var(--paper-item-icon-active-color)!important;                   
+                  }
+                  
+                  .rece_line1_fanart {
+                    font-size:14px;
+                    text-shadow: none!important;
+                    fill:var(--primary-text-color)!important;                   
+                  }
+                  
+                  .rece_line2_fanart {
+                    font-size:12px;
+                    text-shadow: none!important;
+                    fill:var(--primary-text-color)!important;                   
+                  }
+                  
+                  .rece_line3_fanart {
+                    font-size:12px;
+                    text-shadow: none!important;
+                    fill:var(--primary-text-color)!important;                   
+                  }
+                  
+                  .rece_line4_fanart {
+                    font-size:12px;
+                    text-shadow: none!important;
+                    fill:var(--primary-text-color)!important;                   
+                  }                               
+            
+          - entity: switch.apple_tv
+            icon: 'mdi:plex'
+            name: Watch Plex on Apple TV
+            template: plex
+            type: 'custom:button-card'
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+            
+          - break    
+            
+          - type: "custom:upcoming-media-card"
+            entity: sensor.recently_added_tv
+            title: Recently Added Shows
+            image_style: fanart
+            icon: none
+            flag_color: var(--paper-item-icon-active-color)!important;
+            title_color: var(--paper-item-icon-active-color)!important;              
+            border_color: var(--third-background-color)!important; 
+            line1_color: var(--primary-text-color)!important;
+            line2_color: var(--primary-text-color)!important; 
+            line3_color: var(--primary-text-color)!important; 
+            line4_color: var(--primary-text-color)!important; 
+            style: |
+                  ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 15px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                    {% endif %}
+                  }
+                  
+                  div.rece_fan_fanart {
+                   width: 100%;
+                   background: linear-gradient(to right, var(--third-background-color) 48%, transparent 70%,var( --third-background-color) 100%);
+                   background-image: linear-gradient(to right, var(--third-background-color) 48%, transparent 70%, var(--third-background-color) 100%);
+                   background-position-x: initial;
+                   background-position-y: initial;
+                   background-size: initial;
+                   background-repeat-x: initial;
+                   background-repeat-y: initial;
+                   background-attachment: initial;
+                   background-origin: initial;
+                   background-clip: initial;
+                   background-color: var(--third-background-color)
+                   margin: auto;    
+                   box-shadow: var(--primary-background-color)!important;                                  
+                  }
+                  
+                  .rece_line0_fanart {
+                    font-weight:600;
+                    font-size:18px;
+                    text-shadow: none!important;
+                    fill:var(--paper-item-icon-active-color)!important;                   
+                  }
+                  
+                  .rece_line1_fanart {
+                    font-size:14px;
+                    text-shadow: none!important;
+                    fill:var(--primary-text-color)!important;                   
+                  }
+                  
+                  .rece_line2_fanart {
+                    font-size:12px;
+                    text-shadow: none!important;
+                    fill:var(--primary-text-color)!important;                   
+                  }
+                  
+                  .rece_line3_fanart {
+                    font-size:12px;
+                    text-shadow: none!important;
+                    fill:var(--primary-text-color)!important;                   
+                  }
+                  
+                  .rece_line4_fanart {
+                    font-size:12px;
+                    text-shadow: none!important;
+                    fill:var(--primary-text-color)!important;                   
+                  }
+              
+  - title: Vacuum  
+    icon: 'mdi:robot-vacuum'
+    panel: true
+    cards:
+      - type: "custom:layout-card"
+        layout: vertical
+        column_num: 3
+        cards:
+          - content: |
+              # Roomba
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown   
+                        
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - tap_action:
+                      action: call-service
+                      service: vacuum.start
+                      service_data:
+                        entity_id: vacuum.roomba
+                    icon: 'mdi:broom'
+                    name: Clean
+                    template: irobot
+                    entity: vacuum.roomba
+                    show_state: true
+                    state:
+                      - value: 'cleaning'
+                        styles:
+                          name:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          card:
+                            - box-shadow: var(--soft-ui-pressed)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          state:
+                            - font-weight: bold
+                            - opacity: 1
+                            - color: var(--paper-item-icon-active-color)
+                      - value: 'paused'
+                        styles:
+                          name:
+                            - --text-color-sensor: var(--primary-text-color)
+                            - opacity: 0.7
+                          card:
+                            - box-shadow: var(--soft-ui-shadow)
+                          icon:
+                            - color: var(--primary-text-color)
+                            - opacity: 0.7
+                          state:
+                            - font-weight: normal
+                            - opacity: 0.7
+                            - color: var(--primary-text-color)
+                    type: 'custom:button-card'  
+                  - tap_action:
+                      action: call-service
+                      service: vacuum.locate
+                      service_data:
+                        entity_id: vacuum.roomba
+                    icon: 'mdi:bell-ring'
+                    name: Locate
+                    template: irobot
+                    entity: vacuum.roomba
+                    show_state: true
+                    state:
+                      - value: 'cleaning'
+                        styles:
+                          name:
+                            - --text-color-sensor: var(--primary-text-color)
+                            - opacity: 0.7
+                          card:
+                            - box-shadow: var(--soft-ui-shadow)
+                          icon:
+                            - color: var(--primary-text-color)
+                            - opacity: 0.7
+                          state:
+                            - font-weight: normal
+                            - opacity: 0.7
+                            - color: var(--primary-text-color)
+                    type: 'custom:button-card'
+                    
+          - type: gauge
+            entity: sensor.roomba_battery_level
+            name: Battery Level
+            style: |
+                  ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 30px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                    {% endif %}
+                  }
+                  
+          - break
+            
+          - content: |
+              # &nbsp;
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-color: var(--primary-background-color);
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown
+            
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - tap_action:
+                      action: call-service
+                      service: vacuum.pause
+                      service_data:
+                        entity_id: vacuum.roomba
+                    icon: 'mdi:pause'
+                    name: Pause
+                    template: irobot
+                    entity: vacuum.roomba
+                    show_state: true
+                    state:
+                      - value: 'paused'
+                        styles:
+                          name:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          card:
+                            - box-shadow: var(--soft-ui-pressed)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          state:
+                            - font-weight: bold
+                            - opacity: 1
+                            - color: var(--paper-item-icon-active-color)
+                      - value: 'cleaning'
+                        styles:
+                          name:
+                            - --text-color-sensor: var(--primary-text-color)
+                            - opacity: 0.7
+                          card:
+                            - box-shadow: var(--soft-ui-shadow)
+                          icon:
+                            - color: var(--primary-text-color)
+                            - opacity: 0.7
+                          state:
+                            - font-weight: normal
+                            - opacity: 0.7
+                            - color: var(--primary-text-color)
+                    type: 'custom:button-card'  
+                  - tap_action:
+                      action: call-service
+                      service: vacuum.return_to_base
+                      service_data:
+                        entity_id: vacuum.roomba
+                    icon: 'mdi:home'
+                    name: Return
+                    template: irobot
+                    entity: vacuum.roomba
+                    show_state: true
+                    state:
+                      - value: 'returning'
+                        styles:
+                          name:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          card:
+                            - box-shadow: var(--soft-ui-pressed)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          state:
+                            - font-weight: bold
+                            - opacity: 1
+                            - color: var(--paper-item-icon-active-color)
+                      - value: 'cleaning'
+                        styles:
+                          name:
+                            - --text-color-sensor: var(--primary-text-color)
+                            - opacity: 0.7
+                          card:
+                            - box-shadow: var(--soft-ui-shadow)
+                          icon:
+                            - color: var(--primary-text-color)
+                            - opacity: 0.7
+                          state:
+                            - font-weight: normal
+                            - opacity: 0.7
+                            - color: var(--primary-text-color)
+                    type: 'custom:button-card' 
+              - type: horizontal-stack
+                cards:
+                  - icon: 'mdi:delete-empty'
+                    name: Empty Bin
+                    template: irobot_bin_empty
+                    entity: binary_sensor.roomba_bin_full
+                    state:
+                      - value: 'on'
+                        styles:
+                          name:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          card:
+                            - box-shadow: var(--soft-ui-pressed)
+                          icon:
+                            - color: var(--paper-item-icon-active-color)
+                            - opacity: 1
+                          state:
+                            - font-weight: bold
+                            - opacity: 1
+                            - color: var(--paper-item-icon-active-color)
+                      - value: 'off'
+                        styles:
+                          name:
+                            - --text-color-sensor: var(--primary-text-color)
+                            - opacity: 0.7
+                          card:
+                            - box-shadow: var(--soft-ui-shadow)
+                          icon:
+                            - color: var(--primary-text-color)
+                            - opacity: 0.7
+                          state:
+                            - font-weight: normal
+                            - opacity: 0.7
+                            - color: var(--primary-text-color)
+                    type: 'custom:button-card'  
+                    
+          - break
+            
+          - content: |
+              # &nbsp;                           
+                &nbsp;
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 15px;
+                    font-color: var(--primary-background-color);
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown
+            
+          - type: picture
+            image: /local/images/roomba960.png           
+            style: |
+                  ha-card {
+                  background-color: transparent;
+                  border-radius: 250px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                    {% endif %}
+                  }
+                
+  - title: Hockey
+    icon: 'mdi:hockey'
+    panel: true
+    cards:
+      - type: "custom:layout-card"
+        layout: vertical
+        column_num: 2
+        cards:
+          - type: iframe
+            url:
+              https://www.thescore.com/nhl/events
+            aspect_ratio: 160%
+            
+          - break
+          
+          - type: iframe
+            url:
+              https://www.thescore.com/nhl/leaders
+            aspect_ratio: 160%
+ 
+  # CALENDAR
+  
+  - title: Calendar  
+    icon: mdi:calendar
+    panel: true
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: "custom:atomic-calendar-revive"
+            title: "Calendar"
+            enableModeChange: true
+            defaultMode: 2
+            entities:
+              - entity: calendar.2020_fia_formula_one_world_championship_race_calendar
+            style: |
+                  ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 30px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                    {% endif %}
+                  }
+          - type: "custom:atomic-calendar-revive"
+            title: "Calendar"
+            maxDaysToShow: 21
+            entities:
+              - entity: calendar.2020_fia_formula_one_world_championship_race_calendar
+            style: |
+                  ha-card {
+                  background-color: var(--primary-background-color);
+                  border-radius: 30px;
+                  margin: 10px;
+                  box-shadow:
+                    {% if is_state('sun.sun', 'above_horizon') %}
+                      -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                    {% elif is_state('sun.sun', 'below_horizon') %}
+                      -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                    {% endif %}
+                  }
+           
+  - title: Weather
+    icon: mdi:weather-cloudy
+    panel: true
+    cards:
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                  - type: weather-forecast
+                    entity: weather.home
+                    style: |
+                          ha-card {
+                          background-color: var(--primary-background-color);
+                          border-radius: 30px;
+                          margin: 10px;
+                          box-shadow:
+                            {% if is_state('sun.sun', 'above_horizon') %}
+                              -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                            {% elif is_state('sun.sun', 'below_horizon') %}
+                              -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                            {% endif %}
+                          }
+              - type: horizontal-stack
+                cards:   
+                  - type: picture-entity
+                    entity: camera.environment_canada_radar
+                    style: |
+                          ha-card {
+                          background-color: var(--primary-background-color);
+                          border-radius: 30px;
+                          margin: 10px;
+                          box-shadow:
+                            {% if is_state('sun.sun', 'above_horizon') %}
+                              -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                            {% elif is_state('sun.sun', 'below_horizon') %}
+                              -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                            {% endif %}
+                          }
+                  - type: vertical-stack
+                    cards:        
+                      - type: custom:mini-graph-card
+                        entities:
+                          - entity: sensor.hue_motion_sensor_1_temperature
+                            name: Living Room Temperature
+                        
+                        style: |
+                              ha-card {
+                              background-color: var(--primary-background-color);
+                              border-radius: 30px;
+                              margin: 10px;
+                              box-shadow:
+                                {% if is_state('sun.sun', 'above_horizon') %}
+                                  -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                                {% elif is_state('sun.sun', 'below_horizon') %}
+                                  -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                                {% endif %}
+                              }
+                      - type: iframe
+                        url:
+                          https://www.youtube.com/embed/xsRDTfuksyI?controls=0%22%20frameborder=%220%22&mute=1&autoplay=1
+                        aspect_ratio: 50%
+                        style: |
+                              ha-card {
+                              background-color: var(--primary-background-color);
+                              border-radius: 30px;
+                              margin: 10px;
+                              box-shadow:
+                                {% if is_state('sun.sun', 'above_horizon') %}
+                                  -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                                {% elif is_state('sun.sun', 'below_horizon') %}
+                                  -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                                {% endif %}
+                              }
+        
+  - title: Server Status
+    icon: mdi:server
+    panel: true
+    cards:
+      - type: "custom:layout-card"
+        layout: vertical
+        column_num: 2
+        cards:
+          - content: |
+              # Zeus Status
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown 
+                                  
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.zeus_volume_1_volume_used
+            name: Volume Used
+            hours_to_show: 576
+            aggregate_func: max
+            group_by: date
+            show:
+              graph: bar
+            style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+                      
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                name: CPU Load
+                entities:
+                  - entity: sensor.zeus_cpu_load_total
+                    name: CPU Load
+                style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+              - type: custom:mini-graph-card
+                name: Memory Usage
+                entities:
+                  - entity: sensor.zeus_memory_usage_real
+                    name: Memory Usage
+                    color: 'var(--graph-color-2)'
+                style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+                      
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                name: Upload
+                entities:
+                  - entity: sensor.zeus_network_up
+                    name: Upload
+                style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+              - type: custom:mini-graph-card
+                name: Download
+                entities:
+                  - entity: sensor.zeus_network_down
+                    name: Download
+                    color: 'var(--graph-color-2)'
+                style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+
+          
+            style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      }   
+          - type: horizontal-stack
+            cards:          
+              - entity: sensor.plex_online
+                template: server_status
+                type: 'custom:button-card'
+              - entity: sensor.radarr_online
+                template: server_status
+                type: 'custom:button-card'
+              - entity: sensor.sonarr_online
+                template: server_status
+                type: 'custom:button-card'
+              - entity: sensor.jackett_online
+                template: server_status
+                type: 'custom:button-card'
+              - entity: sensor.transmission_online
+                template: server_status
+                type: 'custom:button-card'
+            
+          - break
+          
+          - content: |
+              # Pi-Hole Status
+            style: 
+              .: |
+                ha-card {
+                  --ha-card-background: none !important;
+                  box-shadow: none !important;
+                }
+              ha-markdown:
+                $: |
+                  h1 {
+                    font-size: 30px;
+                    font-weight: normal;
+                    font-family: Helvetica;
+                    letter-spacing: '-0.01em';
+                  }
+            type: markdown 
+            
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.pi_hole_dns_queries_today
+            name: Queries Today
+            hours_to_show: 24
+            aggregate_func: max
+            group_by: hour
+            show:
+              graph: bar
+            style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+                      
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                name: Ads Blocked Today
+                entities:
+                  - entity: sensor.pi_hole_ads_blocked_today
+                    name: Ads Blocked Today
+                style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+              - type: custom:mini-graph-card
+                name: Precentage Blocked
+                entities:
+                  - entity: sensor.pi_hole_ads_percentage_blocked_today
+                    name: Ads Blocked
+                    color: 'var(--graph-color-2)' 
+                style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+                      
+          - type: horizontal-stack
+            cards:
+              - type: custom:mini-graph-card
+                name: Clients
+                unit: ' ' 
+                entities:
+                  - entity: sensor.pi_hole_dns_unique_clients
+                    name: Clients
+                style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+              - type: custom:mini-graph-card
+                name: Domains Blocked
+                unit: ' '
+                entities:
+                  - entity: sensor.pi_hole_domains_blocked
+                    name: Domains Blocked
+                    color: 'var(--graph-color-2)'
+                style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      } 
+
+          
+            style: |
+                      ha-card {
+                      background-color: var(--primary-background-color);
+                      border-radius: 15px;
+                      flag_color: var(--paper-item-icon-active-color);
+                      margin: 10px;
+                      box-shadow:
+                        {% if is_state('sun.sun', 'above_horizon') %}
+                          -4px -4px 8px rgba(255,255,255,.5),5px 5px 8px rgba(0,0,0,.03);
+                        {% elif is_state('sun.sun', 'below_horizon') %}
+                          -5px -5px 8px rgba(50, 50, 50,.2),5px 5px 8px rgba(0,0,0,.08);
+                        {% endif %}
+                      }                         
+            
+          - entity: switch.pi_hole
+            icon: 'mdi:pi-hole'
+            name: Pi-Hole
+            template: plex
+            type: 'custom:button-card'
+            tap_action:
+              action: toggle
+              haptic: light
+            hold_action:
+              action: more-info
+              haptic: medium
+     
+  - title: Tanner  
+    icon: mdi:account
+    cards:
+      - type: map
+        aspect_ratio: 16:9
+        default_zoom: 13
+        entities:
+          - device_tracker.tanners_iphone
+          - zone.home
+        dark_mode: true
+        hours_to_show: 2
+    
+  - title: Marshall  
+    icon: mdi:account
+    cards: 
+      - type: map
+        aspect_ratio: 16:9
+        default_zoom: 13
+        entities:
+          - device_tracker.iphone
+          - zone.home
+        dark_mode: true
+        hours_to_show: 2

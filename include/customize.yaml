@@ -1,0 +1,23 @@
+switch.tanners_ps4:
+  friendly_name: Playstation
+  #icon: mdi:sony-playstation
+switch.marshalls_ps4:
+  friendly_name: Playstation
+  icon: mdi:sony-playstation
+switch.apple_tv:
+  friendly_name: Apple TV
+  icon: mdi:television
+switch.watch_tv:
+  friendly_name: Shaw TV
+  icon: mdi:television-box
+  
+sensor.transmission_online:
+  entity_picture: /local/images/server/transmission.png
+sensor.radarr_online:
+  entity_picture: /local/images/server/radarr.png   
+sensor.jackett_online:
+  entity_picture: /local/images/server/jackett.png
+sensor.sonarr_online:
+  entity_picture: /local/images/server/sonarr.png
+sensor.plex_online:
+  entity_picture: /local/images/server/plex.png

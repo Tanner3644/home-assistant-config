@@ -70,3 +70,4 @@
 * [Philips Hue Go](https://www.philips-hue.com/en-ca/p/hue-white-and-color-ambiance-go-portable-light-(latest-model)/7602031U7) (x2)
 * [Philips Hue Play Gradient Lightstrip](https://www.philips-hue.com/en-ca/p/hue-white-and-color-ambiance-play-gradient-lightstrip-65-inch/046677560416)
 * [Philips Hue Lightstrip](https://www.philips-hue.com/en-ca/p/hue-white-and-color-ambiance-lightstrip-plus-base-v4-80-inch/046677555313)
+* [Roomba 960](https://store.irobot.com/default/roomba-vacuuming-robot-vacuum-irobot-roomba-960/R960020.html)

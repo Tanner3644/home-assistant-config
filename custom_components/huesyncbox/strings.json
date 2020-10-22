@@ -1,0 +1,74 @@
+{
+  "config": {
+    "flow_title": "{name} ({unique_id})",
+    "title": "Philips Hue Play HDMI Sync Box",
+    "step": {
+      "user": {
+        "title": "Connect to the device",
+        "data": {
+          "host": "Host"
+        }
+      },
+      "link": {
+        "title": "Link Philips Hue Play HDMI Sync Box",
+        "description": "Press 'Submit' on this dialog to start the linking procedure. Then walk to the Philips Hue Play HDMI Sync Box and hold the button for 3 seconds until it blinks green to register it with Home Assistant."
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect, please try again",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error",
+      "register_failed": "Failed to register, please try again",
+      "linking": "Unknown linking error occurred."
+    },
+    "abort": {
+      "no_huesyncboxes": "No Philips Hue Play HDMI Sync Boxes discovered",
+      "all_configured": "All Philips Hue Play HDMI Sync Boxes are already configured",
+      "unknown": "Unknown error occurred",
+      "cannot_connect": "Unable to connect to the device",
+      "already_configured": "Device is already configured",
+      "already_in_progress": "Config flow for device is already in progress.",
+      "manual_not_supported": "Manual configuration not supported. Devices should be discovered automatically."
+   }
+  },
+  "device_automation": {
+    "action_type": {
+      "brightness_decrease": "Decrease brightness",
+      "brightness_increase": "Increase brightness",
+      "intensity_down": "Decrease intensity",
+      "intensity_up": "Increase intensity",
+      "intensity_subtle": "Set intensity subtle",
+      "intensity_moderate": "Set intensity moderate",
+      "intensity_high": "Set intensity high",
+      "intensity_intense": "Set intensity extreme",
+      "sync_on": "Start light sync",
+      "sync_off": "Stop light sync",
+      "sync_toggle": "Toggle light sync",
+      "sync_video_toggle": "Toggle video mode light sync",
+      "sync_music_toggle": "Toggle music mode light sync",
+      "sync_game_toggle": "Toggle game mode light sync",
+      "sync_video_on": "Start video mode light sync",
+      "sync_music_on": "Start music mode light sync",
+      "sync_game_on": "Start game mode light sync",
+      "input_next": "Select next input",
+      "input_previous": "Select previous input",
+      "input_hdmi1": "Set input HDMI1",
+      "input_hdmi2": "Set input HDMI2",
+      "input_hdmi3": "Set input HDMI3",
+      "input_hdmi4": "Set input HDMI4",
+      "mode_next": "Select next mode",
+      "mode_previous": "Select previous mode",
+      "mode_game": "Set mode game",
+      "mode_music": "Set mode music",
+      "mode_video": "Set mode video",
+      "toggle": "Toggle on/off",
+      "turn_on": "Turn on",
+      "turn_off": "Turn off"
+    },
+    "condition_type": {
+      "is_on": "{entity_name} is on",
+      "is_off": "{entity_name} is off",
+      "is_syncing": "{entity_name} is syncing"
+    }
+  }
+}

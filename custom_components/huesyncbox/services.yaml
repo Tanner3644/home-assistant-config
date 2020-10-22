@@ -1,0 +1,80 @@
+# Describes the format for available huesync services
+
+set_sync_state:
+  description: Set sync state of the syncbox
+  fields:
+    entity_id:
+      description: Name(s) of entities to set state.
+      example: 'media_player.huesyncbox'
+    sync:
+      description: Set sync state on/off.
+      example: true
+    sync_toggle:
+      description: Toggle sync state.
+      example: true
+    brightness:
+      description: Brightness value to set [0,1].
+      example: 0.47
+    brightness_step:
+      description: Change brightness. Should be between -1..1.
+      example: -0.1
+    mode:
+      description: Mode to set. One of 'video', 'music', 'game'
+      example: 'video'
+    mode_next:
+      description: Select next mode
+      example: true
+    mode_prev:
+      description: Select previous mode
+      example: true
+    intensity:
+      description: Intensity to set. One of 'subtle', 'moderate', 'high', 'intense'.
+      example: 'moderate'
+    intensity_next:
+      description: Select next intensity
+      example: true
+    intensity_prev:
+      description: Select previous intensity
+      example: true
+    input:
+      description: Input to select. One of 'hdmi1', 'hdmi2', 'hdmi3', 'hdmi4'.
+      example: 'hdmi3'
+    input_next:
+      description: Select next input
+      example: true
+    input_prev:
+      description: Select previous input
+      example: true
+
+set_brightness:
+  description: Set the brightnes on the sync box
+  fields:
+    entity_id:
+      description: Name(s) of entities to set brightness.
+      example: 'media_player.huesyncbox'
+    brightness:
+      description: Brightness value to set [0,1].
+      example: 0.5
+
+set_sync_mode:
+  description: Set sync mode to activate on the sync box
+  fields:
+    entity_id:
+      description: Name(s) of entities to activate sync on.
+      example: 'media_player.huesyncbox'
+    mode:
+      description: Mode to set. One of 'video', 'music', 'game'
+      example: 'video'
+
+set_intensity:
+  description: Set intensity for current mode
+  fields:
+    entity_id:
+      description: Name(s) of entities to set intensity on.
+      example: 'media_player.huesyncbox'
+    intensity:
+      description: Intensity to set. One of 'subtle', 'moderate', 'high', 'intense'.
+      example: 'moderate'
+    mode:
+      description: Optional mode to apply intensity to. If not set intensity is applied to current or last used mode.
+      example: 'video'

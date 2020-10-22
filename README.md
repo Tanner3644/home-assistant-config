@@ -51,6 +51,8 @@
 
 ## Network Diagram
 
+![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/Network%20Diagram.png)
+
 ## Smart Home Components
 
 * [Synology DiskStation DS918+](https://www.synology.com/products/DS918+)

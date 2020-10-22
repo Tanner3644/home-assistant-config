@@ -1,0 +1,11 @@
+- name: normal lights
+  entities:
+    light.tanners_bedroom:
+      state: "on"
+      rgb_color: [255,0,0]
+      brightness: 255
+    light.tanners_nightstand:
+      state: "on"
+      rgb_color: [255,0,0]
+      brightness: 255
+  

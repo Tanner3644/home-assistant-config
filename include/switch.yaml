@@ -1,0 +1,70 @@
+  - platform: template
+    switches:
+      # TANNERS PLAYSTATION HARMONY ACTIVITY
+      tanners_ps4:
+        value_template: "{{ is_state_attr('remote.livingroom', 'current_activity', 'Tanners PS4') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'Tanners PS4'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'PowerOff'
+        
+      # MARSHALLS PLAYSTATION HARMONY ACTIVITY
+      marshalls_ps4:
+        value_template: "{{ is_state_attr('remote.livingroom', 'current_activity', 'Marshalls PS4') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'Marshalls PS4'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'PowerOff'
+        
+      # APPLE TV HARMONY ACTIVITY
+      apple_tv:
+        value_template: "{{ is_state_attr('remote.livingroom', 'current_activity', 'Watch Apple TV') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'Watch Apple TV'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'PowerOff'
+            
+      # TV HARMONY ACTIVITY
+      watch_tv:
+        value_template: "{{ is_state_attr('remote.livingroom', 'current_activity', 'Watch TV') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'Watch TV'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'PowerOff'
+            
+      power_off:
+        value_template: "{{ is_state_attr('remote.livingroom', 'current_activity', 'PowerOff') }}"
+        turn_on:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'PowerOff'
+        turn_off:
+          service: remote.turn_on
+          data:
+            entity_id: remote.livingroom
+            activity: 'PowerOff'

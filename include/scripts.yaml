@@ -1,0 +1,57 @@
+nhl_update:
+  alias: Update NHL Game Info
+  sequence:
+    - service: homeassistant.update_entity
+      entity_id: sensor.nhl_sensor
+
+flash_tv_lights:
+  alias: Flash TV lights 1 time
+  sequence:  
+    - service: light.turn_on
+      data:
+        entity_id: light.tv
+        brightness: 255
+        rgb_color: [255,0,0]
+    - delay:
+        seconds: 2
+    - service: light.turn_off
+      data:
+        entity_id: light.tv
+    - delay:
+        milliseconds: 600
+        
+flash_tv_lights_10:
+  alias: Flash Gateway On 10 times
+  sequence:
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    - wait_template: "{{ is_state('script.flash_tv_lights', 'off') }}"
+    - service: script.flash_tv_lights
+    
+reset_nhl_score:
+  alias: reset score
+  sequence:
+    - service: input_number.set_value
+      entity_id: input_number.home_score
+      data:
+        value: 0
+    - service: input_number.set_value
+      entity_id: input_number.away_score
+      data:
+        value: 0  
+   

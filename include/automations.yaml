@@ -1,0 +1,207 @@
+# CHANGE THEME BASED ON SUN POSITION
+- id: set_theme
+  alias: Set Theme
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: sun.sun
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: "above_horizon"
+      sequence:
+      - service: frontend.set_theme
+        data:
+          name: clear
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: "below_horizon"
+      sequence:
+      - service: frontend.set_theme
+        data:
+          name: slate
+ 
+# MOTION SENSOR FOR TABLET SCREEN ON/OFF         
+- alias: Turn on Tablet when there is movement
+  trigger:
+    platform: state
+    entity_id:  binary_sensor.hue_motion_sensor_1_motion
+    to: 'on'
+  action:
+    service: rest_command.kiosk_command
+    data:
+      cmd: screenOn
+
+- alias: Turn off Tablet when there is no movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hue_motion_sensor_1_motion
+    to: 'off'
+    for:
+      seconds: 25
+  action:
+    service: rest_command.kiosk_command
+    data:
+      cmd: screenOff
+      
+# SET TABLET BRIGHTNESS BASED ON SUN POSITION
+- alias: Set tablet brightness based on sun position
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: sun.sun
+  action:
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: "above_horizon"
+      sequence:
+      - service: rest_command.kiosk_command
+        data_template:
+          cmd: setStringSetting
+          key: screenBrightness
+          value: 255
+    - conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: "below_horizon"
+      sequence:
+      - service: rest_command.kiosk_command
+        data_template:
+          cmd: setStringSetting
+          key: screenBrightness
+          value: 75
+          
+# UPDATING NHL SERVER INTERVAL SCAN
+      
+- alias: 'Change NHL update interval to 1 minute when game is Pre-Game'
+  trigger:
+  - platform: time_pattern
+    seconds: '/60'
+  condition:
+  - condition: state
+    entity_id: sensor.nhl_game_state
+    state: "Pre-Game"
+  action:
+  - service: script.turn_on
+    entity_id: script.nhl_update
+    
+- alias: 'Change NHL update interval to 1 second when game is in progress'
+  trigger:
+  - platform: time_pattern
+    seconds: '/1'
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: sensor.nhl_game_state
+      state: "In Progress"
+    - condition: state
+      entity_id: sensor.nhl_game_state
+      state: "In Progress - Critical"
+  action:
+  - service: script.turn_on
+    entity_id: script.nhl_update  
+
+# RESET SCORE PRIOR TO GAME
+    
+- id: reset_score
+  alias: reset_score
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: sensor.nhl_hockey
+    from: "Scheduled"
+    to: "Pre-Game"
+  action:
+  - service: script.reset_nhl_score
+ 
+# SET AWAY SCORE
+      
+- id: away_scores
+  alias: away_scores
+  initial_state: true
+  trigger:
+  - platform: template
+    value_template: "{{ states.sensor.nhl_away_score.state  | int > states('input_number.away_score') | int }}"
+  action:
+  - service: input_number.set_value
+    entity_id: input_number.away_score
+    data_template: 
+      value: "{{ states.sensor.nhl_away_score.state |int }}"
+      
+# SET HOME SCORE
+      
+- id: home_scores
+  alias: home_scores
+  initial_state: true
+  trigger:
+  - platform: template
+    value_template: "{{ states.sensor.nhl_home_score.state  | int > states('input_number.home_score') | int }}"
+  action:
+  - service: input_number.set_value
+    entity_id: input_number.home_score
+    data_template: 
+      value: "{{ states.sensor.nhl_home_score.state |int }}"     
+ 
+# FLASH LIGHTS RED 10 TIMES
+   
+- id: tracked_team_score
+  alias: tracked_team_score
+  initial_state: true
+  trigger:
+    platform: template
+    value_template: "{{ states.sensor.nhl_away_score.state |int > states.input_number.away_score |int or 
+states.sensor.nhl_home_score.state |int > states.input_number.home_score |int }}"
+  condition:
+    condition: template
+    value_template: "{{ state_attr('sensor.nhl_sensor', 'goal_tracked_team') }}"
+  action:
+  - service: script.flash_tv_lights_10
+    data:
+      delay: 00:01:15
+
+# ANNOUNCE "PLEASE PREP THE APARTMENT FOR ROOMBA" 10 MINUTES BEFORE ROOMBA STARTS A CLEAN
+
+- alias: 'prep apartment for roomba'
+  trigger:
+  - platform: time
+    at: '019:20:00'
+  condition:
+  - condition: time
+    weekday:
+      - tue
+  - condition: state
+    entity_id: group.all_devices
+    state: home
+  action:
+  - service: notify.alexa_media
+    data:
+      message: "Roomba will start in 10 minutes, please prep the apartment."
+      data:
+        type: announce
+      target:
+        - media_player.living_room
+        
+- alias: 'roomba starts a clean'
+  trigger:
+  - platform: time
+    at: '019:30:00'
+  condition:
+  - condition: time
+    weekday:
+      - tue
+  - condition: state
+    entity_id: group.all_devices
+    state: home
+  action:
+    - service: vacuum.start
+      data:
+        entity_id: vacuum.roomba
+        

@@ -6,7 +6,7 @@
 
 * Incorporate different brands of smart home devices into one smart dashboard
 * Make a functional, easy to use, reliable and aesethicaly pleasing dashboard
-* Use automations to intregate the compnents together to make tasks easier
+* Use automations to intregate the components together to make tasks easier
 
 ## Tabs
 

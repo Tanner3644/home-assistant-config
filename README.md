@@ -19,7 +19,7 @@
 * Top and bottom pictures show the different theme for day and night
 * Main dashbaord for all of the lights in the apartment
 * Harmony Hub allows for total control of the entertainment system
-* Buttons to start and stop the syncing of the Philips Hue Play Gradient Lightstrip behind the TV to match what is on the TV
+* Buttons to start and stop the syncing of the Philips Hue Play Gradient Lightstrip with what is being shown on the TV
 * Spotify media control for the four different Alexas in the apartment
 
 ### Weather

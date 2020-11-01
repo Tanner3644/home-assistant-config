@@ -59,6 +59,11 @@
 
 ![screenshot](https://github.com/Tanner3644/home-assistant-config/blob/main/screenshots/Network%20Diagram.png)
 
+## Future Integrations
+
+* Facial recogntion for apartment occupants
+* Security camera tab
+
 ## Smart Home Components
 
 * [Synology DiskStation DS918+](https://www.synology.com/products/DS918+)
